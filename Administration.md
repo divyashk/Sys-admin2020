@@ -24,3 +24,15 @@ localhost                  : ok=13   changed=4    unreachable=0    failed=0    s
 ```
 * I went onto to the github repository to find the fixes and found that the author suggested changing (just a workaround,not a fix) the line 89(in my local repos, it was 88) to 
    ```when: False.``` So I made these changes and it worked.
+
+
+
+
+## Question-2
+
+The case discussed  in this problem is that of Vertical Privilege escalation. 
+There are many ways to prevent further damage to the system but the most immediate and effective are-
+* Reduce the amount of access of privileged individuals to the least possible.
+*  Closely monitor all the logs of the remaining privileged users to find any suspicious activity.
+* Also, warn your employees of the intrusion so that they can help in finding the source of the attack and also safe-guard their credentials from any form of social-engineering.
+
