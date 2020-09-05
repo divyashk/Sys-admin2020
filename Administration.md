@@ -13,7 +13,7 @@ dir
 ./util/venv-dependencies.sh ./venv
 
 ```
-* when installing the linking streisand to my digitalocean server account and further setting up the service, I encountered an error in my terminal as follows-
+* when linking streisand to my digitalocean server account and further setting up the service, I encountered an error in my terminal as follows-
 ```
 TASK [gpg : Refresh the Streisand GPG keyring with keyserver information] ******
 fatal: [128.199.142.41]: FAILED! =>........something bla bla
