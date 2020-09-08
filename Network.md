@@ -25,6 +25,7 @@ Registrar IANA ID: 800068
 ```
 
 It listed [ERNET India](http://www.ernet.in) as the registrar.
+
 ERNET India has been appointed as an exclusive domain registrar for the education and research domains registering the domains under the .in registry from 2005. It registers Domains at second and third level for ac.in, edu.in and res.in zones.
 
 One can also visit the site [whois.domaintools](https://whois.domaintools.com) and enter the sub-domain [students.iitmandi.ac.in] itself and will get the same result.
