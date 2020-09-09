@@ -1,19 +1,24 @@
 # Networking
 
-
-
 ## Question - 2
-I initially wanted to use the command
-```whois students.iitmandi.ac.in```
+
+I initially wanted to use the command.
+
+```
+whois students.iitmandi.ac.in
+```
+
 but as it turns out, 'students.iitmandi.ac.in' is a subdomain and therefore whois might not work.
 
 Therefore I tried the same command with 'iitmandi.ac.in' and it worked.
+
 ```
 whois iitmandi.ac.in
 ```
+
 The output was-
-```
-Domain Name: iitmandi.ac.in
+
+```Domain Name: iitmandi.ac.in
 Registry Domain ID: D4020030-IN
 Registrar WHOIS Server:
 Registrar URL: http://www.ernet.in
