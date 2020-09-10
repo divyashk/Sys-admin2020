@@ -1,11 +1,14 @@
 # Docker
 
+>Remember, all the docker command require root previliges unless otherwise configured. The 'sudo' part of these commands is not included in my explanation but is very much required in a non-root account. 
+
+
 ## Question -1
 
 The built image can be run by using the following command from anywhere, by anyone.
 
 ```bash  
-$docker run divyashk/divyashk
+$docker run divyashk/divyashk     # Since the run command looks for the image online if not found locally, therefore no need to pull the image first.
 ```
 This gives the following output on being run.
 ```bash 
@@ -58,7 +61,21 @@ I achieved this result by proceding as follows.
     $docker push divyashk/divyashk
     ```
 
-## Question -2
+## Question -3
 
 
+* First, pulled the image.
+  ```bash
+  $docker pull httpd       #would default to httpd:latest
+  ```
+* This image now needs to be run with the '-v' flag that uses docker volumes to map Host-OS's files to the Container files. 
+  ```bash
+  $docker run -dit --name apache-container -p 8080:80 -v /home/dk/docker-vol:/usr/local/apache2/htdocs/ httpd  # would default to httpd:latest
+  ```
+* This would create a new directory named 'docker-vol' in /home/dk, but the read-write permissions would need to be changed to achieve the desired convenience.
+  
+  For changing the permissions-
+  ```bash
+  $sudo chmod 700 /home/dk/docker-vol/
 
+Now, all the files in the container will be mapped to /home/dk/docker-vol and all the changes made here will be reflected in the container.
