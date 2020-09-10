@@ -38,7 +38,9 @@ One can also visit the site [whois.domaintools](https://whois.domaintools.com) a
 ## Question - 3
 I used the command nmap with flag '-p' to scan all the ports from 1-2000
 
-```nmap -p 1-2000 iitmandi.co.in```
+```
+nmap -p 1-2000 iitmandi.co.in
+```
 
 It returned the following as open.
 ```
