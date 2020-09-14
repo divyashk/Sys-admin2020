@@ -2,29 +2,35 @@
 
 ## Question-1
 
-I used Google Cloud Console's Compute Engine as my IaaS provider because I have used it before and am quite familiar with how it authenticates and implements Service accounts(required for the builder, which is my own desktop).
+I used Google's Compute Engine as my IaaS provider because I am quite familiar with how it authenticates and implements Service accounts(required for the builder, which is going to be my desktop).
 
 I built the vpn-server as follows.
 
-   * First I installed all the dependencies for the repository 'StreisandEffect/streisand' and then cloned it.
+   * First I installed all the dependencies from the Streisand docs. Then I cloned the repository onto my desktop( didn't really go for a remote server as a builder, since I have Linux installed).
    ```
       5  sudo apt update && sudo apt install git python-pip -y
+
       6  git clone https://github.com/StreisandEffect/streisand.git && cd streisand
+
       7  ./util/venv-dependencies.sh ./venv
+
       8  sudo apt-get install python3-pip python3-openssl python3-dev python3-setuptools python3-venv python-cffi libffi-dev libssl-dev libcurl4-openssl-dev
+
       9  ./util/venv-dependencies.sh ./venv
+
       10  source ./venv/bin/activate
    ```
-   * Once in the python virtual environment having all the dependencies installed, I ran the file streisand from the cloned repository.
+   * Once in the python virtual environment having all the dependencies installed, I ran the streisand file from the cloned repository.
    ```
       ./streisand
    ```
 
-   * Now I was asked to create a service account on the platform and provide a service.json file . I created the service key on the platform (in the API and Services section) and downloaded the corresponding .json file.
-   * Then I was prompted to enter a 'fully qualified domain' for the vpn-server, for which I used the subdomain - vpn.divyasheel.com , before doing this I set the A-record for this sub-domain on the platform and linked it to the newly created vpn-server.
+   * Now I was asked to create a service account on the google platform and provide a service.json file. I created the service key on the platform (in the API and Services section) and downloaded the corresponding .json file.
   
-   
-The series of fatal errors that I got were something like this.
+   * Then I was prompted to enter a 'fully qualified domain' for the vpn-server, for which I used the subdomain - vpn.divyasheel.com , before doing this I set the A-record for this sub-domain on the google platform and linked it to the newly created vpn-server.
+  
+**After entering the domain I experienced some issues.
+The series of fatal errors that I got were something like this->**
 1. ```
    TASK [gpg : Refresh the Streisand GPG keyring with keyserver information] ******
    fatal: [128.199.142.41]: FAILED! =>........something bla bla
@@ -44,27 +50,25 @@ The series of fatal errors that I got were something like this.
    failed: [localhost] (item=None) => {"censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result", "changed": false}
    fatal: [localhost]: FAILED! => {"censored": "the output has been hidden due to the fact that 'no_log: true' was specified for this result", "changed": false}
    ```
-   * This error really took some time to  figure out but was finally fixed by updating the OpenVPN signing keys as suggested in one of the un-merged pull request by "lvlohammadii".
+   * This error really took me some time to  figure out but was finally fixed by updating the OpenVPN signing keys as suggested in a pull request by **"lvlohammadii"**.
 
-   * I again had to start over the process right since the beginning, but I had done it atleast 10 times already, and this time it atleast worked.
+   * I again had to start over the process right from the beginning, and this time it worked.
 
-After tackling with all these errors, I did still recieve some errors but none them halted the installation process and were simply skipped.
+After tackling with all these errors, I did receive some errors but none of them halted the installation process and were simply skipped.
+At the end I received this summary.
 ```
 PLAY RECAP ******************************************************************************
 34.126.125.129             : ok=332  changed=270  unreachable=0    failed=0    skipped=110  rescued=2    ignored=1   
 localhost                  : ok=25   changed=3    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 ```
 
-And finally the setup ended created the directory genereated-docs inside the cloned repo.
+Finally the setup ended creating the directory 'genereated-docs' inside the cloned repo.
 
 This directory consisted of 4 .html files( primarily 2).
 * vpn-server.html consisted of the user and password required for accessing the website(instructions for using) hosted on the vpn-server.
 * vpn-server-firewall-information.html consists of information listing all the open ports on the newly created server.
 
 ![](./images/generated_docs.png)
-
-
-
 
 
 ## Question-2
