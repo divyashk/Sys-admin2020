@@ -162,5 +162,12 @@ It returned the following as open.
 1723/tcp open     pptp
 
 ```
+>note- Only 4 of them were left open when I last checked.
 
+## What did I Learn?
+* REGULAR EXPRESSION (the best part)
+* Attaching files in an automated email.
+* Learning the format of linux logs.
+* Running bash command in python using the os module.
+* implementation of regex in python
 
