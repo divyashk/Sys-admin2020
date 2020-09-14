@@ -138,4 +138,9 @@ This directory consisted of 4 .html files( primarily 2).
   
 * Closely monitor all the logs of the remaining privileged users to find any suspicious activity, such as brute force logins attempts in auth.logs and possibly find the source of the attack.
   
-
+## What did I Learn?
+* lets encrypt
+* google cloud compute engine
+* linus system administration
+* how does a vpn work.
+  
