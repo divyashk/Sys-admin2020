@@ -1,6 +1,6 @@
 # Docker
 
->Remember, all the docker command require root previliges unless otherwise configured. The 'sudo' part of these commands is not included in my explanation but is very much required in a non-root account. 
+>Remember, all the docker command require root privileges unless otherwise configured. The 'sudo' part of these commands is not included in my explanation but is very much required in a non-root account. 
 
 
 ## Question -1
@@ -29,11 +29,11 @@ Listening 3000
 
 I achieved this result by proceding as follows.
 * First I cloned the [baat-cheet](https://github.com/KamandPrompt/baat-cheet.git) app from github.
-* Then I created a Dockerfile 'inside' this cloned directory(important) to build the image.
+* Then I created a Dockerfile **inside** this cloned directory to build the image.
   ```bash
   $touch Dockerfile
   ```
-*  The file is written like this-
+*  The Dockerfile is written like this-
     ```Dockerfile
     #for creating a base image that runs nodejs
     FROM node:latest-slim 
@@ -48,7 +48,7 @@ I achieved this result by proceding as follows.
     # adding all the file from the application to the image for creating the container later.
     COPY . /baat-cheet
 
-    # launching the application
+    # launching the application in the container
     CMD ["npm", "start"]
 
     ```
@@ -60,6 +60,8 @@ I achieved this result by proceding as follows.
     ```bash
     $docker push divyashk/divyashk
     ```
+
+
 
 ## Question -3
 
@@ -77,5 +79,5 @@ I achieved this result by proceding as follows.
   For changing the permissions-
   ```bash
   $sudo chmod 700 /home/dk/docker-vol/
-
+  ```
 Now, all the files in the container will be mapped to /home/dk/docker-vol and all the changes made here will be reflected in the container.
