@@ -77,7 +77,9 @@ This directory consisted of 4 .html files( primarily 2).
   ```bash
   usermod -L user69
    ```
-  >NOTE->this will only prevent subsequent login attempts by changing the account specific hash in /etc/shadow but won't interrupt any ongoing session.
+  >NOTE -> this will only prevent subsequent login attempts by changing the account specific hash in /etc/shadow but won't interrupt any ongoing session.
+
+* If we've not yet started backing up our data then that is something we need to immediately work on(but be careful not to include scripts and other malware from the attacker account).
 
 * Before destroying this account we need to collect information about the previous activity of this account. This will help us understand the attack vector of the hacker.
    * The most obvious place to look first would be **.<bash, python,zsh>_history** files in the home directory. We need to store its content.
@@ -103,14 +105,37 @@ This directory consisted of 4 .html files( primarily 2).
 
       ```
    * We also need to get rid of all the cron tabs created by this user, but store them first.
+ 
+* Next we need to configure our firewall to suspend all expendable outgoing process by disabling the ports. This is done to avoid any misuse of the server if compromised.
 
-The case discussed  in this problem is that of Vertical Privilege escalation. 
-There are many ways to prevent further damage to the system but the most immediate and effective are-
-* We can analyze the auth logs of a system to detect a brute force attack, this will help in finding the source of intrusion.
-* We need to remove the public ssh keys of compromised systems from the authorized keys in our isolated systems.  
+   ```bash
+   sudo ufw default deny outgoing
+
+   sudo ufw allow out <important ports>
+   ```
+   We also need to reconsider our firewall for incoming ports. (make sure that this doesn't interfere with our application A)
+
+### Now we need to begin removing the user and files associated with this user.
+ * First, find and kill all running processes linked with user69
+   ```bash
+   killall -9 -u user69
+   ```
+* Now we delete the user account and the files linked with it.
+  ```bash
+   deluser --remove-home user69    # for debian
+   ```
+
+
+* There are certain sites that provide information about vulnerabilities in a specific version of the OS or a kernel. These vulnerability can be exploited to gain vertical privilege escalation. Therefore we need to find these vulnerabilities before the attacker and safeguard them.
+  
+   To do this we need to feed our OS info like kernel version and distribution to sites like-(don't reveal any info specific to your personal machine)
+   * www.cvedetails.com
+   * packetstormsecurity.org/files/cve/[CVE]
+   * cve.mitre.org/cgi-bin/cvename.cgi?name=[CVE]
+   * www.vulnview.com/cve-details.php?cvename=[CVE] 
+
 * Reduce the amount of access of privileged individuals to the least possible and enable two-factor authentication on all access points.
-* Closely monitor all the logs of the remaining privileged users to find any suspicious activity.
-* Also, warn your employees of the intrusion so that they can help in finding the source of the attack and also safe-guard their credentials from any form of social-engineering.
-* We need to start backing up our data as soon as possible and also monitor any unusual data transfer or removal.
-* 
+  
+* Closely monitor all the logs of the remaining privileged users to find any suspicious activity, such as brute force logins attempts in auth.logs and possibly find the source of the attack.
+  
 
