@@ -143,4 +143,6 @@ This directory consisted of 4 .html files( primarily 2).
 * google cloud compute engine
 * linus system administration
 * how does a vpn work.
-  
+* creating a simple firewall using **ufw**
+* importance of auth log in linux
+* **scp** command to transfer files from a server.
