@@ -126,7 +126,7 @@ This directory consisted of 4 .html files( primarily 2).
    ```
 
 
-* There are certain sites that provide information about vulnerabilities in a specific version of the OS or a kernel. These vulnerability can be exploited to gain vertical privilege escalation. Therefore we need to find these vulnerabilities before the attacker and safeguard them.
+* There are certain sites that provide information about vulnerabilities in a specific version of the OS or a kernel. These vulnerability can be exploited to gain vertical privilege . Therefore we need to find these vulnerabilities before the attacker and safeguard them.
   
    To do this we need to feed our OS info like kernel version and distribution to sites like-(don't reveal any info specific to your personal machine)
    * www.cvedetails.com
