@@ -98,14 +98,14 @@ I divided the question into 3 parts -
  
     ```
 
+
 > Important- For the script to execute and create report files, we need to change the permission of the directory of the find.py. This can be done using the **chmod** command.
 
-
-
-
-
-
-
+## Testing the script on my own linux server
+  * First I ssh into my server and clone the repo server-status.
+  * Then I ran the find.py file using python3 and got this output ![](images/3.png).
+  * Now the mail has been sent and you will receive something like this.![](images/4.png)
+  * The sample reports can be found in the images directory.
 
 
 
