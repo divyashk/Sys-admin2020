@@ -61,6 +61,23 @@ I achieved this result by proceding as follows.
     $docker push divyashk/divyashk
     ```
 
+## Question -2
+
+For this question I will be using docker-compose.
+I will achieve this setup as follow-
+  
+* I will ask my friend, lets call him User69,  to create a github repository which contains the 'docker-compose.yml' file along with all the files it depends on.
+  
+* This file will have to be configured by User69 to make sure that the command 'docker-compose up' runs on his own machine with each update. This file ,if configured successfully by User69, will take care of all the images and Docfiles that are needed to run different process in different containers. Also it will ensure that these container can connect with each other to provide the complete application.
+  
+* My job would be to simply pull this repository  with each important update and run the following command in my local repository.
+  ```bash
+  docker-compose up
+  ```
+
+* This approach would completely safeguard the server from User69.
+
+* Also if we don't trust User69 we can use the --cap(capability drop) to prohibit certain commands like 'KILL', which kills/deactivates other containers.
 
 
 ## Question -3
